@@ -1,20 +1,23 @@
 import React from 'react';
 
-function Carausal() {
+function Carausal({search,setSearch}) {
     return (
         <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-caption w-full" style={{ zIndex: "10" }}>
-                    <form className="d-flex">
+                    <form className="d-flex justify-content-center">
                         <input
                             className="form-control me-2"
                             type="search"
                             placeholder="Search"
                             aria-label="Search"
+                            
+                            value={search}
+                            onChange={(e)=>setSearch(e.target.value)}
                         />
-                        <button className="btn btn-outline-success text-white" type="submit">
+                        {/* <button className="btn btn-outline-success text-white" type="submit">
                             Search
-                        </button>
+                        </button> */}
                     </form>
                 </div>
                 <div className="carousel-item active">
