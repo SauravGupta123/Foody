@@ -2,3 +2,13 @@
     background-color:#00bc8c;
 
 }
+
+*{
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+
+}
+
+.cat_name{
+    font-weight:900;
+}
