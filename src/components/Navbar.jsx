@@ -48,8 +48,8 @@ function Navbar() {
               </div>
             ) : (
               <>
-                <div className="nav-link bg-white rounded" to="/login">Login</div>
-                <div className="nav-link bg-white rounded mx-5" to="/signup">Signup</div>
+                <Link className="nav-link bg-white rounded" to="/login">Login</Link>
+                <Link className="nav-link bg-white rounded mx-5" to="/signup">Signup</Link>
               </>
             )}
           </i>
