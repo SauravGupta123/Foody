@@ -1,49 +1,33 @@
 const express = require('express')
 const app = express();
+const cors= require('cors');
 const connectMongoose= require('./db.js')
 const bodyParser = require('body-parser');
 
+// app.use((req,res,next)=>{
+//   res.setHeader( "Access-control-Allow-Origin", "http://localhost:5173");
+//   res.header(
+//    "Access-Control-Allow-header",
+//    "Origin, X-Requested-With, Content-Type, Accept",
+//    );
+//    next();
+   
+//  })
+ app.use(cors());
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.json());
 
 const router=express.Router();
 
-router.use(auth,auth2);
+
 
 //stores foodData here
- connectMongoose();
-
-router.get('/users', (req, res) => {
-  console.log("get called!");
-
-})
-
-
-app.get('/users',(req,res)=>{
-  console.log('get request called');
-})
-
-app.get('/verify/users',(req,res,next)=>{
-  console.log('verify get request called');
-  next();
-})
-
-
-
-
-function auth(req,res,next){
-  console.log("autjhenticated");
-  next();
-}
-
-function auth2(req,res,next){
-  console.log("autjhenticated2");
-  next();
-}
+connectMongoose();
 
 app.use('/api/', require('./routes/createUser.js'));
-
+app.use('/api/', require('./routes/foodData.js'));
+app.use('/api', require('./routes/OrderDetails.js'))
 app.listen(3000,()=>{
     console.log("server is runnning at port 3000");
 
