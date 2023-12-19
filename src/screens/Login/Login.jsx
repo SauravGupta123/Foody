@@ -30,6 +30,8 @@ const navigate=useNavigate ();
        alert(res.msg);
        if(res.success){
         localStorage.setItem('authToken',res.authToken);
+        console.log(res.email)
+        localStorage.setItem('userEmail',res.email);
             
             navigate('/')
        }
