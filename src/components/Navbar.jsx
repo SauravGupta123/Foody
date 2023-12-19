@@ -19,7 +19,7 @@ function Navbar() {
   return ( 
     <nav className="navbar navbar-expand-lg navbar-dark bg-success" style={{ backgroundColor: "#00bc8c" }}>
       <div className="container-fluid">
-        <Link className="navbar-brand fs-1 fst-italic" to="/">GoFood</Link>
+        <Link className="navbar-brand fs-1 " style={{fontFamily:'Luckiest Guy, cursive'}} to="/">Foody</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -30,7 +30,7 @@ function Navbar() {
             </li>
             {localStorage.getItem('authToken') ? (
               <li className="nav-item">
-                <Link className="nav-link active fs-5" aria-current="page" to="/my-orders">My Orders</Link>
+                <Link className="nav-link active fs-5" aria-current="page" to="/myOrders">My Orders</Link>
               </li>
             ) : null}
           </ul>
@@ -41,7 +41,7 @@ function Navbar() {
 
               <div className="nav-link bg-white rounded " onClick={()=>setCartView(true)}>
                 Cart {" "}
-                <Badge pill bg="danger">{data.length}</Badge>
+                <Badge pill bg="danger">{data?data.length:0}</Badge>
                 </div>
                 {cartView? <Modal onClose={()=>setCartView(false)} ><Cart></Cart></Modal>: null}
               <div  className="nav-link bg-white text-danger rounded mx-5"  onClick={handleLogout}>Logout</div>
