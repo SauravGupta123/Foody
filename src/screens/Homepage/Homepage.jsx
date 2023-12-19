@@ -57,7 +57,7 @@ function Homepage() {
           foodCat.length > 0 ? (
             foodCat.map((data) => (
               <div key={data._id} className='row mb-3'>
-                <div className='fs-3 m-3'>{data.CategoryName}</div>
+                <div className='fs-3 m-3 cat_name'>{data.CategoryName}</div>
                 <hr />
                 {foodData
                   .filter((item) => (item.CategoryName === data.CategoryName) && (item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())))
